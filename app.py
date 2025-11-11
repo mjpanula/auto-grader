@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from question_generator import generate_question_data
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def process():
     question = data.get('question', '')
     
     # For now, just echo the input
-    processed_text = question
+    processed_text = generate_question_data(question)
     
     return jsonify({'result': processed_text})
 
