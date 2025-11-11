@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Grader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Auto Grader - question generator</h1>
+        
+        <div class="form-container">
+            <div class="input-group">
+                <label for="questionInput">Exam Question:</label>
+                <textarea id="questionInput" rows="6" placeholder="Enter your exam question here..."></textarea>
+            </div>
+            
+            <button id="submitBtn" class="submit-btn">Submit</button>
+            
+            <div class="input-group">
+                <label for="resultInput">Processed Result:</label>
+                <textarea id="resultInput" rows="6" placeholder="Result will appear here..." readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
