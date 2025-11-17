@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Disable button during processing
         submitBtn.disabled = true;
         submitBtn.textContent = 'Processing...';
-        resultInput.value = 'Processing...';
+        resultInput.innerHTML = '<p class="processing">Processing...</p>';
 
         try {
             const response = await fetch('/process', {
@@ -22,18 +22,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ question: question })
+                body: JSON.stringify({ question: question }),
+                timeout: 30000
             });
 
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                const errorText = await response.text();
+                throw new Error(`Server error: ${response.status} - ${errorText}`);
             }
 
             const data = await response.json();
-            resultInput.value = data.result;
+            const markdownResult = data.result || 'No result returned';
+            resultInput.innerHTML = marked.parse(markdownResult);
         } catch (error) {
             console.error('Error:', error);
-            resultInput.value = 'An error occurred while processing the question.';
+            resultInput.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+            alert(`An error occurred: ${error.message}`);
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit';

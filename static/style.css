@@ -66,7 +66,128 @@ textarea:focus {
 
 textarea[readonly] {
     background-color: #f8f9fa;
-    cursor: not-allowed;
+    cursor: default;
+}
+
+.result-display {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    min-height: 200px;
+    max-height: 600px;
+    overflow-y: auto;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+/* Markdown styling */
+.result-display h1, .result-display h2, .result-display h3, 
+.result-display h4, .result-display h5, .result-display h6 {
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.result-display h1 { font-size: 2em; border-bottom: 2px solid #667eea; padding-bottom: 5px; }
+.result-display h2 { font-size: 1.6em; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+.result-display h3 { font-size: 1.4em; }
+.result-display h4 { font-size: 1.2em; }
+
+.result-display p {
+    margin: 10px 0;
+    color: #333;
+}
+
+.result-display ul, .result-display ol {
+    margin: 10px 0;
+    padding-left: 30px;
+}
+
+.result-display li {
+    margin: 5px 0;
+    color: #333;
+}
+
+.result-display code {
+    background-color: #f1f1f1;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #d63384;
+}
+
+.result-display pre {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+.result-display pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #333;
+}
+
+.result-display blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin: 15px 0;
+    color: #555;
+    font-style: italic;
+}
+
+.result-display strong {
+    font-weight: 700;
+    color: #222;
+}
+
+.result-display em {
+    font-style: italic;
+}
+
+.result-display hr {
+    border: none;
+    border-top: 2px solid #ddd;
+    margin: 20px 0;
+}
+
+.result-display table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.result-display table th,
+.result-display table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.result-display table th {
+    background-color: #667eea;
+    color: white;
+    font-weight: 600;
+}
+
+.result-display table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.result-display .processing {
+    color: #667eea;
+    font-style: italic;
+}
+
+.result-display .error {
+    color: #dc3545;
+    font-weight: 600;
 }
 
 .submit-btn {
